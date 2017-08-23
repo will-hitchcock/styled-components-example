@@ -8,7 +8,13 @@ import React from 'react'
 // import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-const StyledCard = styled.div`
+
+const Card = props =>
+  <div className={props.className}>
+    {props.children}
+  </div>
+
+export default styled(Card)`
   width: 50%;
   margin: 0 auto;
   background-color: #fff;
@@ -16,13 +22,3 @@ const StyledCard = styled.div`
   border-radius: 2px;
   box-shadow: 3px 3px 3px 3px #ccc;
 `
-
-const Card = ({ children }) => {
-  return (
-    <StyledCard>
-      {children}
-    </StyledCard>
-  )
-}
-
-export default Card

@@ -9,15 +9,12 @@ import React from 'react'
 import styled from 'styled-components'
 
 
-const Button = (props) => {
-  return (
-    <button className={props.className} onClick={props.onClick}>
-      {props.children}
-    </button>
-  )
-}
+const Button = props =>
+  <button className={props.className} onClick={props.onClick}>
+    {props.children}
+  </button>
 
-export const StyledButton = styled(Button)`
+export default styled(Button)`
   display: inline-block;
   border-radius: 3px;
   padding: 0.5rem 0;
@@ -33,6 +30,3 @@ export const StyledButton = styled(Button)`
     outline: none;
   }
 `
-
-
-export default StyledButton

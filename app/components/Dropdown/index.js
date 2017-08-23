@@ -55,7 +55,7 @@ class Dropdown extends Component { // eslint-disable-line react/prefer-stateless
   }
 }
 
-const StyledDropdown = styled(Dropdown)`
+export default styled(Dropdown)`
   display: inline-block;
   position: relative;
   padding: 0.5rem 0;
@@ -65,5 +65,3 @@ const StyledDropdown = styled(Dropdown)`
     margin: 0;
   }
 `
-
-export default StyledDropdown
