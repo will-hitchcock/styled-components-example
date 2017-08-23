@@ -102,6 +102,10 @@
       }
     },
     "rules": {
+      "semi": [
+        "error",
+        "never"
+      ],
       "arrow-parens": [
         "error",
         "always"
@@ -110,10 +114,13 @@
         2,
         "as-needed"
       ],
-      "comma-dangle": [
-        2,
-        "always-multiline"
-      ],
+      "comma-dangle": ["error", {
+        "arrays": "never",
+        "objects": "never",
+        "imports": "never",
+        "exports": "never",
+        "functions": "ignore"
+      }],
       "import/imports-first": 0,
       "import/newline-after-import": 0,
       "import/no-dynamic-require": 0,
@@ -221,6 +228,7 @@
     "ip": "1.1.4",
     "lodash": "4.17.2",
     "minimist": "1.2.0",
+    "prop-types": "15.5.10",
     "react": "15.4.1",
     "react-dom": "15.4.1",
     "react-helmet": "3.2.2",
@@ -234,7 +242,7 @@
     "redux-saga": "0.14.0",
     "reselect": "2.5.4",
     "sanitize.css": "4.1.0",
-    "styled-components": "1.1.2",
+    "styled-components": "2.1.2",
     "warning": "3.0.0",
     "whatwg-fetch": "2.0.1"
   },

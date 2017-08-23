@@ -1,4 +1,4 @@
-import { injectGlobal } from 'styled-components';
+import { injectGlobal } from 'styled-components'
 
 /* eslint no-unused-expressions: 0 */
 injectGlobal`
@@ -17,6 +17,7 @@ injectGlobal`
   }
 
   #app {
+    display: flex;
     background-color: #fafafa;
     min-height: 100%;
     min-width: 100%;
@@ -27,4 +28,4 @@ injectGlobal`
     font-family: Georgia, Times, 'Times New Roman', serif;
     line-height: 1.5em;
   }
-`;
+`
