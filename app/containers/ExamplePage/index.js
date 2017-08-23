@@ -5,7 +5,6 @@
  */
 
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import Button from 'components/Button'
 import Dropdown from 'components/Dropdown'
 import Block from 'components/Block'
@@ -17,19 +16,22 @@ const BigButton = styled(Button)`
 `
 
 export class ExamplePage extends Component { // eslint-disable-line react/prefer-stateless-function
-  static propTypes = {}
-
   render() {
     return (
       <Block slim>
         <Button>Button</Button>
-        <Button color='red' onClick={() => {console.log('Hello!')}}>Red Button</Button>
-        <Dropdown data={['United States', 'Canada', 'Mexico']} onSelect={(data) => {
-          console.log(data + ' selected!')
-        }}>Dropdown</Dropdown>
+        <Button color="red" onClick={() => { console.log('Hello!') }}>Red Button</Button>
+        <Dropdown
+          data={['United States', 'Canada', 'Mexico']}
+          onSelect={(data) => {
+            console.log(`${data} selected!`)
+          }}
+        >
+          Dropdown
+        </Dropdown>
 
         <BigButton>Bigger</BigButton>
-        <BigButton color='red'>Redder</BigButton>
+        <BigButton color="red">Redder</BigButton>
       </Block>
     )
   }

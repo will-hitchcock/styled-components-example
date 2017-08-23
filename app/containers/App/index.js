@@ -12,7 +12,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types' // eslint-disable-line no-unused-vars
+import PropTypes from 'prop-types'
 
 export default class App extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 
