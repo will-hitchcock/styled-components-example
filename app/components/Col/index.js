@@ -28,6 +28,7 @@ const Col = styled.div`
   flex: 0 0 auto;
   padding-right: 0.5rem;
   padding-left: 0.5rem;
+  margin-bottom: 1rem;
 
   ${props => props.reverse
     ? 'flex-direction: column-reverse;'

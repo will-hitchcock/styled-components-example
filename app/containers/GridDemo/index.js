@@ -12,11 +12,9 @@ import Col from 'components/Col'
 
 const Box = styled.div`
   padding: 1rem;
-  margin-bottom: 1rem;
   position: relative;
   box-sizing: border-box;
   min-height: 1rem;
-  margin-bottom: 0;
   background: palevioletred;
   border: 1px solid #FFF;
   border-radius: 2px;
@@ -28,16 +26,16 @@ const Box = styled.div`
 const GridDemo = () =>
   <Container>
     <Row>
-      <Col xs={6} md={3}>
+      <Col xs={12} sm={6} lg={3}>
         <Box />
       </Col>
-      <Col xs={6} md={3}>
+      <Col xs={12} sm={6} lg={3}>
         <Box />
       </Col>
-      <Col xs={6} md={3}>
+      <Col xs={12} sm={6} lg={3}>
         <Box />
       </Col>
-      <Col xs={6} md={3}>
+      <Col xs={12} sm={6} lg={3}>
         <Box />
       </Col>
     </Row>
