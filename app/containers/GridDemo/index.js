@@ -185,5 +185,5 @@ const GridDemo = (props) =>
   </Container>
 
 export default styled(GridDemo)`
-  margin-top: 2rem;
+  padding-top: 2rem;
 `
