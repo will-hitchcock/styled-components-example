@@ -17,7 +17,6 @@ injectGlobal`
   }
 
   #app {
-    display: flex;
     background-color: #fafafa;
     min-height: 100%;
     min-width: 100%;

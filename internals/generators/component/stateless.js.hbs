@@ -12,15 +12,12 @@ import { FormattedMessage } from 'react-intl'
 import messages from './messages'
 {{/if}}
 
-const {{ properCase name }} = (props) => {
-  return (
-    <div>
-    {{#if wantMessages}}
-      <FormattedMessage {...messages.header} />
-    {{/if}}
-    </div>
-  )
-}
+const {{ properCase name }} = props =>
+  <div>
+  {{#if wantMessages}}
+    <FormattedMessage {...messages.header} />
+  {{/if}}
+  </div>
 
 {{ properCase name }}.propTypes = {
 

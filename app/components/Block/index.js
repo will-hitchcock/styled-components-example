@@ -5,7 +5,7 @@
 */
 
 import styled, { css } from 'styled-components'
-import { clearfix } from 'utils/style/mixins'
+import { clearfix, media } from 'utils/style/mixins'
 
 const Block = styled.div`
   ${clearfix}
@@ -24,30 +24,25 @@ const Block = styled.div`
       &:first-of-type {
         margin-top: 48px;
       }
+
+      ${media('sm')`
+        margin: 40px auto;
+        width: auto;
+      `}
     `
     : css`
       margin: 0 0 24px;
       padding: $base-unit * 2;
       width: 100%;
 
+      ${media('sm')`
+        margin-bottom: 16px;
+      `}
+
       h1 {
         margin-top: 0;
       }
     `}
-
-  .block {
-
-    @media #{$media-small-minus} {
-      margin-bottom: 16px;
-    }
-  }
-
-  .block-slim {
-    @media #{$media-small-minus} {
-      margin: 40px auto;
-      width: auto;
-    }
-  }
 `
 
 export default Block
