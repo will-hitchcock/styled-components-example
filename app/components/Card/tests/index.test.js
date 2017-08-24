@@ -1,10 +1,12 @@
-// import React from 'react'
-// import { shallow } from 'enzyme'
+import React from 'react'
+import { shallow } from 'enzyme'
 
-// import Card from '../index'
+import Card from '../index'
 
 describe('<Card />', () => {
-  it('Expect to have unit tests specified', () => {
-    expect(true).toEqual(false)
+  const component = shallow(<Card />)
+
+  it('renders a <div />', () => {
+    expect(component.find('div').node).toBeDefined()
   })
 })

@@ -1,10 +1,12 @@
-// import React from 'react'
-// import { shallow } from 'enzyme'
+import React from 'react'
+import { shallow } from 'enzyme'
 
-// import Col from '../index'
+import Col from '../index'
 
 describe('<Col />', () => {
-  it('Expect to have unit tests specified', () => {
-    expect(true).toEqual(false)
+  const component = shallow(<Col />)
+
+  it('renders a <div />', () => {
+    expect(component.find('div').node).toBeDefined()
   })
 })

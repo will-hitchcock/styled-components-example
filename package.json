@@ -114,13 +114,16 @@
         "warn",
         "as-needed"
       ],
-      "comma-dangle": ["error", {
-        "arrays": "never",
-        "objects": "never",
-        "imports": "never",
-        "exports": "never",
-        "functions": "ignore"
-      }],
+      "comma-dangle": [
+        "error",
+        {
+          "arrays": "never",
+          "objects": "never",
+          "imports": "never",
+          "exports": "never",
+          "functions": "ignore"
+        }
+      ],
       "import/imports-first": 0,
       "import/newline-after-import": 0,
       "import/no-dynamic-require": 0,
