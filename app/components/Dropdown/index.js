@@ -6,25 +6,11 @@
 
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Button from 'components/Button'
 import styled from 'styled-components'
+import Button from 'components/Button'
+import { showing } from 'utils/style/mixins'
 
-const StyledOptions = styled.ul`
-  display: ${props => props.showing ? 'block' : 'none'};
-  list-style: none;
-  position: absolute;
-  background-color: papayawhip;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  li {
-    padding: 0 1rem;
-    &:hover {
-      background-color: palevioletred;
-      color: white;
-    }
-  }
-`
+const StyledOptions = styled.ul`${showing}`
 
 class Dropdown extends Component { // eslint-disable-line react/prefer-stateless-function
   static propTypes = {
@@ -60,6 +46,21 @@ export default styled(Dropdown)`
   position: relative;
   padding: 0.5rem 0;
   margin: 0.5rem 1rem;
+  ul {
+    list-style: none;
+    position: absolute;
+    background-color: papayawhip;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    li {
+      padding: 0 1rem;
+      &:hover {
+        background-color: palevioletred;
+        color: white;
+      }
+    }
+  }
 
   ${Button} {
     margin: 0;

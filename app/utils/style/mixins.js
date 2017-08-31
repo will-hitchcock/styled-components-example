@@ -8,6 +8,17 @@ export const clearfix = css`
   }
 `
 
+export const showing = ({ showing }) => {
+  let display
+  if (!showing) display = 'none'
+  else if (show === true) display = 'block'
+  else display = 'show'
+
+  return css`
+    display: ${display}
+  `
+}
+
 export const media = label => {
   const sizes = {
     xs: 375,
