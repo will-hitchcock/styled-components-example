@@ -1,10 +1,12 @@
-// import React from 'react';
-// import { shallow } from 'enzyme';
+import React from 'react'
+import { shallow } from 'enzyme'
 
-// import Button from '../index';
+import Button from '../index'
 
 describe('<Button />', () => {
-  it('Expect to have unit tests specified', () => {
-    expect(true).toEqual(false)
+  const component = shallow(<Button />)
+
+  it('renders a <button />', () => {
+    expect(component.find('button').node).toBeDefined()
   })
 })
