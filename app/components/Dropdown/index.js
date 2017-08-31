@@ -8,9 +8,9 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Button from 'components/Button'
-import { showing } from 'utils/style/mixins'
+import { showHide } from 'utils/style/mixins'
 
-const StyledOptions = styled.ul`${showing}`
+const StyledOptions = styled.ul`${showHide}`
 
 class Dropdown extends Component { // eslint-disable-line react/prefer-stateless-function
   static propTypes = {

@@ -8,10 +8,10 @@ export const clearfix = css`
   }
 `
 
-export const showing = ({ showing }) => {
+export const showHide = ({ showing }) => {
   let display
   if (!showing) display = 'none'
-  else if (show === true) display = 'block'
+  else if (showing === true) display = 'block'
   else display = 'show'
 
   return css`
