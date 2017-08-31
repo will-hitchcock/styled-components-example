@@ -10,15 +10,16 @@
  */
 
 import React from 'react'
-import { FormattedMessage } from 'react-intl'
-import messages from './messages'
+import Container from 'components/Container'
+import ButtonLink from 'components/ButtonLink'
 
 export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <h1>
-        <FormattedMessage {...messages.header} />
-      </h1>
+      <Container>
+        <ButtonLink href="/grid">Grid Demo</ButtonLink>
+        <ButtonLink href="/example">Demo</ButtonLink>
+      </Container>
     )
   }
 }

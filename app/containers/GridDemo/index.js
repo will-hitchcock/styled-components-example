@@ -68,14 +68,14 @@ const GridDemo = (props) =>
     <Col xs={goldenRight}><Box>xs=1 - ((1 + Math.sqrt(5)) / 2 - 1)</Box></Col>
 
     <Col xs={goldenLeft} rOffset={goldenRight}>
-      <Box>xs=(1 + Math.sqrt(5)) / 2 - 1</Box>
+      <Box>rOffset=1 - ((1 + Math.sqrt(5)) / 2 - 1)</Box>
     </Col>
     <Col xs={goldenRight} lOffset={goldenLeft}>
-      <Box>xs=1 - ((1 + Math.sqrt(5)) / 2 - 1)</Box>
+      <Box>lOffset=(1 + Math.sqrt(5)) / 2 - 1</Box>
     </Col>
 
     <Col xs={4}><Box>xs=4</Box></Col>
-    <Col xs={4} lOffset={4}><Box>xs=4</Box></Col>
+    <Col xs={4} lOffset={4}><Box>lOffset={4}</Box></Col>
   </Container>
 
 export default GridDemo
