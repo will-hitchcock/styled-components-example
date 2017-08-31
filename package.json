@@ -13,6 +13,7 @@
   "author": "Max Stoiber",
   "license": "MIT",
   "scripts": {
+    "heroku-postbuild": "npm run build",
     "analyze:clean": "rimraf stats.json",
     "preanalyze": "npm run analyze:clean",
     "analyze": "node ./internals/scripts/analyze.js",
@@ -114,13 +115,16 @@
         "warn",
         "as-needed"
       ],
-      "comma-dangle": ["error", {
-        "arrays": "never",
-        "objects": "never",
-        "imports": "never",
-        "exports": "never",
-        "functions": "ignore"
-      }],
+      "comma-dangle": [
+        "error",
+        {
+          "arrays": "never",
+          "objects": "never",
+          "imports": "never",
+          "exports": "never",
+          "functions": "ignore"
+        }
+      ],
       "import/imports-first": 0,
       "import/newline-after-import": 0,
       "import/no-dynamic-require": 0,
