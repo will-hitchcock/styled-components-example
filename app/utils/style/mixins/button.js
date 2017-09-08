@@ -1,3 +1,5 @@
+import { focus } from 'utils/style/pseudo'
+
 export const button = props => {
   return {
     display: 'inline-block',
@@ -9,7 +11,7 @@ export const button = props => {
     border: '2px solid white',
     cursor: 'pointer',
     background: props.color || 'palevioletred',
-    '&::focus': {
+    [focus]: {
       outline: 'none'
     }
   }
