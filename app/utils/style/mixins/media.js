@@ -1,5 +1,3 @@
-import { css } from 'styled-components'
-
 export const media = label => {
   const sizes = {
     xs: 375,
@@ -9,12 +7,11 @@ export const media = label => {
     xl: 1680
   }
 
-  return (...args) => {
-    return css`
-      @media (min-width: ${sizes[label]}px) {
-        ${args}
-      }
-    `
+  return args => {
+    const query = `@media (min-width: ${sizes[label]}px)`
+    return {
+      [query]: args
+    }
   }
 }
 

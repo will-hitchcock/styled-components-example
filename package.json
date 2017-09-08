@@ -113,7 +113,8 @@
       ],
       "arrow-body-style": [
         "warn",
-        "as-needed"
+        "as-needed",
+        { "requireReturnForObjectLiteral": true }
       ],
       "comma-dangle": [
         "error",
