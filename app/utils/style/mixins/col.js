@@ -1,4 +1,3 @@
-import { css } from 'styled-components'
 import media from './media'
 /**
 *
@@ -20,18 +19,18 @@ const colSize = num => num < 1 ? num * 100 : 100 / (12 / num)
 export const colWidth = num => {
   if (!num) return null
   if (num === 'auto') {
-    return css`
-      flex-grow: 1;
-      flex-basis: 0;
-      max-width: 100%;
-    `
+    return {
+      flexGrow: 1,
+      flexBasis: 0,
+      maxWidth: '100%'
+    }
   }
 
   const width = colSize(num)
-  return `
-    flex-basis: ${width}%;
-    max-width: ${width}%;
-  `
+  return {
+    flexBasis: `${width}%`,
+    maxWidth: `${width}%`
+  }
 }
 
 /**
@@ -40,41 +39,27 @@ export const colWidth = num => {
 * uses colSize to calculate margin for the given side
 *
 **/
-export const colOffset = (num, side) => `
-  margin-${side}: ${colSize(num)}%;
-`
-
-export const col = css`
-  box-sizing: border-box;
-  flex: 0 0 auto;
-  padding: 0.5rem;
-  ${''/* ^ We should allow this value to be configured */}
-
-  ${props => props.reverse
-    ? 'flex-direction: column-reverse;'
-    : null
+export const colOffset = (num, side) => {
+  const property = `margin-${side}`
+  return {
+    [property]: `${colSize(num)}%`
   }
+}
 
-  ${props => colOffset(props.lOffset, 'left')}
-  ${props => colOffset(props.rOffset, 'right')}
-
-  ${props => colWidth(props.xs)}
-
-  ${props => media('sm')`
-    ${colWidth(props.sm)}
-  `}
-
-  ${props => media('md')`
-    ${colWidth(props.md)}
-  `}
-
-  ${props => media('lg')`
-    ${colWidth(props.lg)}
-  `}
-
-  ${props => media('xl')`
-    ${colWidth(props.xl)}
-  `}
-`
+export const col = ({ padding, reverse, lOffset, rOffset, xs, sm, md, lg, xl }) => {
+  return {
+    boxSizing: 'border-box',
+    flex: '0 0 auto',
+    padding: padding || '0.5rem',
+    flexDirection: reverse ? 'column-reverse' : 'initial',
+    ...colOffset(lOffset, 'left'),
+    ...colOffset(rOffset, 'right'),
+    ...colWidth(xs),
+    ...media('sm')(colWidth(sm)),
+    ...media('md')(colWidth(md)),
+    ...media('lg')(colWidth(lg)),
+    ...media('xl')(colWidth(xl))
+  }
+}
 
 export default col

@@ -1,35 +1,20 @@
-import { css } from 'styled-components'
 import { media } from './media'
 
-export const container = css`
-  margin-right: auto;
-  margin-left: auto;
-  box-sizing: border-box;
-  display: flex;
-  flex: 0 1 auto;
-  flex-wrap: wrap;
-  ${props => props.reverse
-    ? 'flex-direction: row-reverse;'
-    : 'flex-direction: row;'
+export const container = ({ reverse, fluid }) => {
+  return {
+    marginRight: 'auto',
+    marginLeft: 'auto',
+    boxSizing: 'border-box',
+    display: 'flex',
+    flex: '0 1 auto',
+    flexWrap: 'wrap',
+    flexDirection: reverse ? 'row-reverse' : 'row',
+    paddingRight: fluid ? 0 : null,
+    paddingLeft: fluid ? 0 : null,
+    ...media('sm')({ width: '49rem' }),
+    ...media('md')({ width: '65rem' }),
+    ...media('lg')({ width: '76rem' })
   }
-  ${props => props.fluid
-    ?
-      css`padding-right: 0;
-      padding-left: 0;`
-    : null
-  }
-
-  ${media('sm')`
-    width: 49rem;
-  `}
-
-  ${media('md')`
-    width: 65rem;
-  `}
-
-  ${media('lg')`
-    width: 76rem;
-  `}
-`
+}
 
 export default container
