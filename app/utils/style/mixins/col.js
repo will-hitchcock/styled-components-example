@@ -39,16 +39,19 @@ export const colWidth = num => {
 * uses colSize to calculate margin for the given side
 *
 **/
-export const colOffset = (num, side) => `
-  margin-${side}: ${colSize(num)}%;
-`
+export const colOffset = (num, side) => {
+  const property = `margin-${side}`
+  return {
+    [property]: `${colSize(num)}%`
+  }
+}
 
 export const col = ({ padding, reverse, lOffset, rOffset, xs, sm, md, lg, xl }) => {
   return {
     boxSizing: 'border-box',
     flex: '0 0 auto',
     padding: padding || '0.5rem',
-    flexDirection: reverse ? 'column-reverse' : null,
+    flexDirection: reverse ? 'column-reverse' : 'initial',
     ...colOffset(lOffset, 'left'),
     ...colOffset(rOffset, 'right'),
     ...colWidth(xs),
