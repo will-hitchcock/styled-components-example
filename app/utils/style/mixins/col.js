@@ -1,12 +1,12 @@
-import media from './media'
+import { flattenMin } from './media'
 /**
 *
-* Utility function for calculating ccol size
+* Utility function for calculating col size
 * values below 1 are used to calculate percentage widths
 * values between 1 and 12 are used for 12 column grid pattern
 *
 **/
-const colSize = num => num < 1 ? num * 100 : 100 / (12 / num)
+const colSize = num => num * 100
 
 /**
 *
@@ -16,9 +16,8 @@ const colSize = num => num < 1 ? num * 100 : 100 / (12 / num)
 * also accepts 'auto'
 *
 **/
-export const colWidth = num => {
-  if (!num) return null
-  if (num === 'auto') {
+export const colWidth = size => {
+  if (size === 'auto') {
     return {
       flexGrow: 1,
       flexBasis: 0,
@@ -26,7 +25,7 @@ export const colWidth = num => {
     }
   }
 
-  const width = colSize(num)
+  const width = colSize(size)
   return {
     flexBasis: `${width}%`,
     maxWidth: `${width}%`
@@ -39,26 +38,26 @@ export const colWidth = num => {
 * uses colSize to calculate margin for the given side
 *
 **/
-export const colOffset = (num, side) => {
-  const property = `margin-${side}`
+export const colOffset = num => {
+  if (!num) return {}
   return {
-    [property]: `${colSize(num)}%`
+    marginLeft: `${colSize(num)}%`
   }
 }
 
-export const col = ({ padding, reverse, lOffset, rOffset, xs, sm, md, lg, xl }) => {
+export const col = ({
+  gutter,
+  reverse,
+  offset,
+  ...props
+}) => {
   return {
     boxSizing: 'border-box',
     flex: '0 0 auto',
-    padding: padding || '0.5rem',
+    padding: gutter || '0.5em',
     flexDirection: reverse ? 'column-reverse' : 'initial',
-    ...colOffset(lOffset, 'left'),
-    ...colOffset(rOffset, 'right'),
-    ...colWidth(xs),
-    ...media('sm')(colWidth(sm)),
-    ...media('md')(colWidth(md)),
-    ...media('lg')(colWidth(lg)),
-    ...media('xl')(colWidth(xl))
+    ...colOffset(offset),
+    ...flattenMin(props, colWidth)
   }
 }
 

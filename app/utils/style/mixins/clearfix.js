@@ -1,6 +1,8 @@
+import { after } from 'utils/style/pseudo'
+
 export const clearfix = () => {
   return {
-    '&::after': {
+    [after]: {
       content: '""',
       display: 'table',
       clear: 'both'

@@ -1,18 +1,35 @@
-export const media = label => {
-  const sizes = {
-    xs: 375,
-    sm: 768,
-    md: 992,
-    lg: 1200,
-    xl: 1680
-  }
+import sizes from '../sizes'
 
-  return args => {
-    const query = `@media (min-width: ${sizes[label]}px)`
-    return {
-      [query]: args
-    }
-  }
+const queries = {
+  min: key => `@media (min-width: ${sizes[key]})`,
+  max: key => `@media (max-width: ${sizes[key]})`,
+  between: (start, end) =>
+    `@media (min-width: ${sizes[start]} and (max-width: ${sizes[end]}`
 }
 
-export default media
+export const min = key => args => {
+  if (!key) return args
+  return { [queries.min(key)]: args }
+}
+
+export const max = key => args => {
+  if (!key) return args
+  return { [queries.max(key)]: args }
+}
+
+export const between = (start, end) => args => {
+  return { [queries.between(start, end)]: args }
+}
+
+const flatten = (query, props, mixin) => {
+  const output = {}
+  Object.keys(sizes)
+    .filter(a => !!props[a])
+    .map(value => (output[query(value)] = mixin(props[value])))
+  return output
+}
+
+export const flattenMin = (...args) => flatten(queries.min, ...args)
+export const flattenMax = (...args) => flatten(queries.max, ...args)
+
+export default { min, max, between, flattenMin, flattenMax }
