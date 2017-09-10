@@ -1,19 +1,23 @@
-import { media } from './media'
+import { flattenMin } from './media'
 
-export const container = ({ reverse, fluid }) => {
+export const container = ({ fluid }) => {
+  const width = fluid
+    ? {
+      width: '100%',
+      paddingRight: 0,
+      paddingLeft: 0,
+      overflowX: 'hidden'
+    }
+    : flattenMin(
+        { sm: '34em', md: '45em', lg: '58em', xl: '70em', xx: '99em' },
+        a => {
+          return { width: a }
+        })
+
   return {
     marginRight: 'auto',
     marginLeft: 'auto',
-    boxSizing: 'border-box',
-    display: 'flex',
-    flex: '0 1 auto',
-    flexWrap: 'wrap',
-    flexDirection: reverse ? 'row-reverse' : 'row',
-    paddingRight: fluid ? 0 : null,
-    paddingLeft: fluid ? 0 : null,
-    ...media('sm')({ width: '49rem' }),
-    ...media('md')({ width: '65rem' }),
-    ...media('lg')({ width: '76rem' })
+    ...width
   }
 }
 
